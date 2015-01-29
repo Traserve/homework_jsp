@@ -40,7 +40,7 @@ public class StudentDao {
 
             while (rs.next()) {
                 id = rs.getString(1);
-
+                System.out.println(id);
             }
         }
         catch (Exception ex){

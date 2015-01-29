@@ -15,7 +15,7 @@
 <body><%
     HttpSession hs = request.getSession();
 %>
-<%=HomeworkDao.searchByOwner(StudentDao.getOwner((String)hs.getAttribute("stuid_1")))%>
+<%=HomeworkDao.searchByOwner(StudentDao.getOwner((String)hs.getAttribute("sid")))%>
 <a href="intoStudent.jsp">返回</a>
 </body>
 </html>

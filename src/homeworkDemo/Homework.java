@@ -23,7 +23,7 @@ public class Homework extends HttpServlet {
             HttpSession hs = req.getSession();
             String hid = req.getParameter("hid_1");
             String answer=req.getParameter("answer1");
-            String owner = StudentDao.getOwner((String)hs.getAttribute("stuid_1"));
+            String owner = StudentDao.getOwner((String)hs.getAttribute("sid"));
             HomeworkDao.insertInfo_homework(hid,answer,owner);
 
             req.getRequestDispatcher("/insertHomework.jsp").forward(req,resp);

@@ -1,3 +1,5 @@
+<%@ page import="jdbcTest.Dao.HomeworkDao" %>
+<%@ page import="jdbcTest.Dao.StudentDao" %>
 <%--
   Created by IntelliJ IDEA.
   User: online
@@ -10,7 +12,10 @@
 <head>
     <title></title>
 </head>
-<body>
-
+<body><%
+    HttpSession hs = request.getSession();
+%>
+<%=HomeworkDao.searchByOwner(StudentDao.getOwner((String)hs.getAttribute("sid")))%>
+<a href="intoStudent.jsp">返回</a>
 </body>
 </html>

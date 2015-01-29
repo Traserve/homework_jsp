@@ -19,6 +19,9 @@
     <input type="text" name="answer1">答案<br/>
     <input type="submit" value="提交">
 </form>
-<a href="selectHomework.jsp">2.查看作业分数</a>
+<a href="selectHomework.jsp">2.查看作业分数</a><br/>
+<a href="index.jsp"><%HttpSession hs = request.getSession();
+hs.setAttribute("sid","");
+%>注销登录</a>
 </body>
 </html>
