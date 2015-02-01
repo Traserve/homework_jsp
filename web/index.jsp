@@ -11,21 +11,31 @@
   <head>
     <title>主界面</title>
   </head>
+  <%HttpSession hs = request.getSession();
+      hs.setAttribute("sid","");%>
   <body>
           <form id = "form1" method = "get" action="login">
 
-          ******************作业管理系统******************<br/>
-                  请选择登录方式：<br/>
-                  1.教师登录。<input type ="radio" name = "login" value="1"><br/>
-                  2.学生登录。<input type ="radio" name = "login" value="2"><br/>
-                  学号登录：<br/>
-              <% if (request.getAttribute("cuowu")!=null){
-              %>
-              输入错误！请重新输入。<br/>
-              <%}%>
+          <img border="0" src="img/437.jpg" width="100%" height="100%" style='position: absolute;left:0px;top:0px;z-index: -1' /><br/>
+              <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <td  align="center" valign="middle">
+                          <font color="#7fff00">请选择登录方式:</font><br/>
+                          <font color="#FF0000">1.教师登录。</font>
+                          <input type ="radio" name = "login" value="1"><br/>
+                          <font color="#FF0000">2.学生登录。</font>
+                          <input type ="radio" name = "login" value="2"><br/>
+                          <font color="#FF0000">输入学号</font><br/>
+                          <% if (request.getAttribute("cuowu")!=null){
+                          %>
+                          <font color="#FF0000">输入错误！请重新输入。</font><br/>
+                          <%}%>
+                          <input type ="password" name = "sid" ><br/>
+                          <input type="submit"  value ="登录">
+                      </td>
+                  </tr>
+              </table>
 
-          <input type ="text" name = "sid" ><br/>
-          <input type="submit" value ="提交">
           </form>
 
   </body>

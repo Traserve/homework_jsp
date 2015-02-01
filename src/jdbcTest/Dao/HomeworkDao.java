@@ -56,7 +56,8 @@ public class HomeworkDao {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String str ="";
+        String str ="<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" +
+                "<tr><th>作业编号</th><th>答案</th></tr>";
         int i=0;
         try {
             con = StudentDao.getConne();
@@ -68,8 +69,9 @@ public class HomeworkDao {
                 i++;
                 String answer = rs.getString(2);
                 Integer homeworkid = rs.getInt(1);
-               str = str+"  "+homeworkid+"  "+answer+"<br/>";
+               str = str+"<tr><th>"+homeworkid+"</th><th>"+answer+"</th></tr>";
             }
+            str+="</table>";
         } catch (Exception e) {
             System.out.println("Error : " + e.toString());
         } finally {
@@ -83,7 +85,8 @@ public class HomeworkDao {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String str = "";
+        String str = "<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" +
+                "<tr><th>作业编号</th><th>答案</th><th>序号</th><th>分数</th></tr>";
         int stuid = Integer.parseInt(stuids);
         try {
             con = StudentDao.getConne();
@@ -98,8 +101,9 @@ public class HomeworkDao {
                 Integer homeworkid = rs.getInt(1);
                 Integer owner = rs.getInt(3);
                 Integer score = rs.getInt(4);
-                str+=homeworkid+"         "+answer+"          "+owner+"          "+score+"</br>";
+                str+="<tr><th>"+homeworkid+"</th><th>"+answer+"</th><th>"+owner+"</th><th>"+score+"</th></tr>";
             }
+            str+="</table>";
         } catch (Exception e) {
             System.out.println("Error : " + e.toString());
         } finally {
@@ -111,7 +115,8 @@ public class HomeworkDao {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String str = "";
+        String str = "<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" +
+                "<tr><th>序号</th><th>学号</th><th>姓名</th><th>作业编号</th><th>分数</th></tr>";
         int owner = Integer.parseInt(owner1);
         try {
             con = StudentDao.getConne();
@@ -128,8 +133,9 @@ public class HomeworkDao {
                 Integer homeworkid = rs.getInt(5);
                 Integer score = rs.getInt(8);
 
-                str+=id+"    "+sid+"    "+sname+"    "+homeworkid+"    "+score+"<br/>";
+                str=str+"<tr><th>"+id+"</th><th>"+sid+"</th><th>"+sname+"</th><th>"+homeworkid+"</th><th>"+score+"</tr>";
             }
+            str = str+"</table>";
         } catch (Exception e) {
             System.out.println("Error : " + e.toString());
         } finally {
@@ -141,7 +147,8 @@ public class HomeworkDao {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String str ="";
+        String str ="<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" +
+                "<tr><th>姓名</th><th>学号</th></tr>";
         try {
             con = StudentDao.getConne();
             stmt = con.createStatement();
@@ -151,9 +158,9 @@ public class HomeworkDao {
             while (rs.next()) {
                 String sname = rs.getString(2);
                 Integer sid = rs.getInt(1);
-                str = str+"    "+sname+"    "+sid+"<br/>";
-
+                str = str+"<tr><th>"+sname+"</th><th>"+sid+"</th></tr>";
             }
+            str=str+"</table>";
         } catch (Exception e) {
             System.out.println("Error : " + e.toString());
         } finally {

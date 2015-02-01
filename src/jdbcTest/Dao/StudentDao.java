@@ -106,7 +106,8 @@ public class StudentDao {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String str = "";
+        String str = "<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" +
+                "<tr><th>序号</th><th>学号</th><th>姓名</th></tr>";
         try {
             con = getConne();
             stmt = con.createStatement();
@@ -119,8 +120,9 @@ public class StudentDao {
                 String id = rs.getString(1);
                 String sid = rs.getString(2);
                 String sname = rs.getString(3);
-                str = str+"    "+id+"    "+sid+"    "+sname+"<br/>";
+                str = str+"<tr><th>"+id+"</th><th>"+sid+"</th><th>"+sname+"</th></tr>";
             }
+            str = str+"</table>";
         }
         catch (Exception e){
             System.out.println("Error : " + e.toString());
