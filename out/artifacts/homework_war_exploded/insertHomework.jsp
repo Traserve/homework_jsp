@@ -11,7 +11,9 @@
     <title></title>
 </head>
 <body>
-提交成功！
-<a href="intoStudent.jsp">返回</a>
+提交成功！3s后自动返回。。。。。
+<%
+    response.setHeader("Refresh","3;URL=intoStudent.jsp");
+%>
 </body>
 </html>

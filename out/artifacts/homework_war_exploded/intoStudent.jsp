@@ -11,6 +11,14 @@
     <title>学生登录</title>
 </head>
 <body>
+<%
+    String sid = (String)session.getAttribute("sid");
+    if (sid==null){
+        request.setAttribute("cuowu","你么有登录");
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        return;
+    }
+%>
 <p2>登录成功</p2><br/>
 请选择服务项目：<br/>
 1.提交作业：<br/>
@@ -20,6 +28,6 @@
     <input type="submit" value="提交">
 </form>
 <a href="selectHomework.jsp">2.查看作业分数</a><br/>
-<a href="index.jsp">注销登录</a>
+<a href="invalidate.jsp">注销登录</a>
 </body>
 </html>
